@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+    <defs>
+        <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#D4E4FC" />
+            <stop offset="100%" stop-color="#8AB4F8" />
+        </linearGradient>
+        <filter id="shadow">
+            <feDropShadow dx="1" dy="2" stdDeviation="2" flood-color="#203A43" flood-opacity="0.3"/>
+        </filter>
+    </defs>
+    <rect width="100" height="100" rx="25" fill="url(#bg)" />
+    <!-- Center XV -->
+    <text x="50%" y="65%" font-family="Playfair Display, Georgia, serif" font-size="52" font-weight="900" fill="#203A43" text-anchor="middle" filter="url(#shadow)">XV</text>
+</svg>

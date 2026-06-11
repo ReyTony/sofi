@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis XV Años | Sofia Ruiz</title>
+    <meta name="description" content="Acompáñame a celebrar mis XV años. Sofia Ruiz.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Great+Vibes&display=swap"
+        rel="stylesheet">
+    <!-- Boxicons (Icons) -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+</head>
+
+<body>
+    <!-- Pantalla de Acceso (Login Premium Glassmorphic) -->
+    <div id="login-screen" class="login-screen">
+        <!-- Paso 1: Ingreso de PIN -->
+        <div id="login-step" class="login-card glass-panel">
+            <div class="login-icon-wrap">
+                <i class='bx bx-key icon-large'></i>
+            </div>
+            <h2>Acceso a la Invitación</h2>
+            <p>Ingresa tu PIN de invitado único para desbloquear tu invitación personalizada.</p>
+            <form id="login-form">
+                <div class="form-group">
+                    <input type="text" id="login-pin" placeholder="Ingresa tu PIN (ej. SF001)" required autocomplete="off">
+                </div>
+                <button type="submit" class="btn btn-primary" id="login-btn">
+                    <span>Desbloquear Invitación</span>
+                </button>
+            </form>
+            <div id="login-error" class="login-error-msg hidden-message">PIN incorrecto o no registrado. Por favor, verifica e inténtalo de nuevo.</div>
+        </div>
+
+        <!-- Paso 2: Pantalla de Bienvenida (Flotante) -->
+        <div id="welcome-step" class="login-card glass-panel hidden-message" style="max-width: 500px; width: 95%;">
+            <div class="login-icon-wrap animate-heart">
+                <i class='bx bx-envelope-open icon-large'></i>
+            </div>
+            <h2>¡Qué alegría tenerte con nosotros!</h2>
+            <div class="welcome-message-box" style="text-align: center; margin-top: 15px;">
+                <p class="welcome-guest-name" id="welcome-guest-name" style="margin-bottom: 15px; font-weight: bold; font-family: var(--font-script); font-size: 2.8rem; color: var(--clr-primary);"></p>
+                <p class="welcome-text-emotive" id="welcome-text-emotive" style="font-family: var(--font-heading); font-style: italic; font-size: 1.15rem; line-height: 1.6; color: var(--clr-text); margin-bottom: 20px;">
+                    "Es un verdadero honor para mí y para mi familia invitarte a celebrar este día tan mágico y lleno de felicidad. Tu presencia y compañía harán que esta gran noche sea inolvidable y única. ¡Te esperamos con todo el cariño del mundo!"
+                </p>
+                <p class="welcome-passes-info" id="welcome-passes-info" style="font-size: 0.95rem; color: #555; background: rgba(255, 255, 255, 0.5); padding: 8px 18px; border-radius: 30px; display: inline-block; border: 1px solid rgba(255, 255, 255, 0.8); margin-bottom: 25px;"></p>
+            </div>
+            <button class="btn btn-primary" id="btn-show-invitation" style="width: 100%;">
+                <span>Ver Invitación</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Overlay de Mariposas -->
+    <div id="butterfly-container"></div>
+
+    <!-- Header / Hero Section -->
+    <header class="hero-section" id="home">
+        <div class="glass-panel">
+            <h2 class="pre-title">Estás invitado a mis</h2>
+            <h1 class="main-title">XV Años</h1>
+            <h3 class="name">Sofia Ruiz</h3>
+            <p class="date-hero">25 de Julio de 2026</p>
+        </div>
+        <div class="scroll-indicator">
+            <span>Desliza hacia abajo</span>
+            <i class='bx bx-chevron-down ripple'></i>
+        </div>
+    </header>
+
+    <!-- Family Section -->
+    <section class="section family-section" id="family">
+        <div class="container glass-panel family-content">
+            <div class="icon-wrap animate-heart">
+                <i class='bx bxs-heart icon-large'></i>
+            </div>
+            <h2 class="section-title">Con la bendición de mi familia</h2>
+            <p class="family-message">
+                "Hoy hace quince años que Dios me regaló la vida y a la familia más maravillosa. Gracias a mi madre y
+                mis madrinas por apoyarme en cada paso, por su amor incondicional y por hacer de este gran día una
+                hermosa realidad."
+            </p>
+
+            <div class="family-grid">
+                <div class="family-card">
+                    <h3>Mi madre</h3>
+                    <p class="family-names">Guadalupe Ruiz Reyes</p>
+                </div>
+                <div class="family-card">
+                    <h3>Mis Madrinas</h3>
+                    <p class="family-names">Luz María Ruiz Reyes<br>&amp;<br>Gabriela Ruiz Reyes</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Countdown Section -->
+    <section class="section countdown-section" id="countdown-sec">
+        <div class="container">
+            <h2 class="section-title">Faltan...</h2>
+            <div class="countdown-timer" id="timer">
+                <div class="time-box">
+                    <span id="days">00</span>
+                    <p>Días</p>
+                </div>
+                <div class="time-box">
+                    <span id="hours">00</span>
+                    <p>Horas</p>
+                </div>
+                <div class="time-box">
+                    <span id="minutes">00</span>
+                    <p>Minutos</p>
+                </div>
+                <div class="time-box">
+                    <span id="seconds">00</span>
+                    <p>Segundos</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Locations Section -->
+    <section class="section locations-section" id="locations">
+        <div class="container">
+            <h2 class="section-title">¿Dónde y Cuándo?</h2>
+            <div class="locations-grid">
+                <!-- Ceremonia Religiosa -->
+                <div class="location-card glass-panel">
+                    <i class='bx bx-church icon-large'></i>
+                    <h3>Ceremonia Religiosa</h3>
+                    <p class="time">Hora: 17:00 Hrs</p>
+                    <p class="place">Parroquia de Cristo Rey Tacubaya</p>
+                    <p class="address">Escuadrón 201, #71, Col. Cristo Rey, Álvaro Obregón, CDMX</p>
+                    <div class="map-container">
+                        <!-- Embedded Google Map -->
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3763.5516956402435!2d-99.197!3d19.388!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1ff0000000000%3A0x0000000000000000!2sParroquia%20de%20Cristo%20Rey%20Tacubaya!5e0!3m2!1ses!2smx!4v1713000000000!5m2!1ses!2smx"
+                            width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                    <a href="https://maps.google.com/?q=Parroquia+de+Cristo+Rey+Tacubaya+Alvaro+Obregon+CDMX"
+                        target="_blank" class="btn btn-primary"><i class='bx bx-map'></i> Ver en Maps</a>
+                </div>
+
+                <!-- Recepción -->
+                <div class="location-card glass-panel">
+                    <i class='bx bx-wine icon-large'></i>
+                    <h3>Recepción</h3>
+                    <p class="time">Hora: 19:00 Hrs</p>
+                    <p class="place">Salón las Rosas</p>
+                    <p class="address">Av. Santa Lucía #810, Col. Olivar del Conde 1ra sección, Álvaro Obregón, CDMX</p>
+                    <div class="map-container">
+                        <!-- Embedded Google Map -->
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3763.8824127926176!2d-99.20863030000001!3d19.3828784!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d2003c2bb08a13%3A0xfdd48a2789f6674a!2sAv%20Sta%20Lucia%20810%2C%20Olivar%20del%20Conde%201ra%20Secc%2C%20%C3%81lvaro%20Obreg%C3%B3n%2C%2001400%20Ciudad%20de%20M%C3%A9xico%2C%20CDMX!5e0!3m2!1ses!2smx!4v1713000000000!5m2!1ses!2smx"
+                            width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                    <a href="https://maps.app.goo.gl/CceSkxkfepPsrz5V6" target="_blank" class="btn btn-primary"><i
+                            class='bx bx-map'></i> Ver en Maps</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="section gallery-section" id="gallery">
+        <div class="container">
+            <h2 class="section-title">Galería</h2>
+            <div class="carousel-container glass-panel">
+                <div class="carousel-track" id="carousel-track">
+                    <!-- Images will be inserted here dynamically -->
+                </div>
+                <button class="carousel-btn prev" id="carousel-prev"><i class='bx bx-chevron-left'></i></button>
+                <button class="carousel-btn next" id="carousel-next"><i class='bx bx-chevron-right'></i></button>
+                <div class="carousel-indicators" id="carousel-indicators"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dress Code Section -->
+    <section class="section dresscode-section" id="dress-code">
+        <div class="container glass-panel dresscode-content">
+            <div class="icon-wrap">
+                <i class='bx bx-closet icon-large'></i>
+            </div>
+            <h2 class="section-title">Código de Vestimenta</h2>
+            <h3 class="dress-type">Formal / Gala</h3>
+            <p class="dress-desc">Te invitamos a vestir formalmente para acompañarnos en esta noche especial.</p>
+
+            <div class="color-palette">
+                <h4>Paleta de Colores Sugerida:</h4>
+                <div class="colors">
+                    <div class="color-swatch" style="background: #1A1A1A;" title="Negro Elegante">
+                        <div class="outfit-tooltip">
+                            <img src="assets/img/outfits/black.png" alt="Sugerencia Negro Elegante">
+                            <span>Sugerencia: Negro</span>
+                        </div>
+                    </div>
+                    <div class="color-swatch" style="background: #4A5568;" title="Gris Oxford">
+                        <div class="outfit-tooltip">
+                            <img src="assets/img/outfits/grey.png" alt="Sugerencia Gris Oxford">
+                            <span>Sugerencia: Gris Oxford</span>
+                        </div>
+                    </div>
+                    <div class="color-swatch" style="background: #C0C0C0;" title="Plateado">
+                        <div class="outfit-tooltip">
+                            <img src="assets/img/outfits/silver.png" alt="Sugerencia Plateado">
+                            <span>Sugerencia: Plateado</span>
+                        </div>
+                    </div>
+                    <div class="color-swatch" style="background: #D4AF37;" title="Dorado">
+                        <div class="outfit-tooltip">
+                            <img src="assets/img/outfits/gold.png" alt="Sugerencia Dorado">
+                            <span>Sugerencia: Dorado</span>
+                        </div>
+                    </div>
+                    <div class="color-swatch" style="background: #B76E79;" title="Oro Rosa / Palo de Rosa">
+                        <div class="outfit-tooltip">
+                            <img src="assets/img/outfits/rosegold.png" alt="Sugerencia Oro Rosa">
+                            <span>Sugerencia: Oro Rosa</span>
+                        </div>
+                    </div>
+                    <div class="color-swatch" style="background: #F3E5AB;" title="Champagne / Beige">
+                        <div class="outfit-tooltip">
+                            <img src="assets/img/outfits/champagne.png" alt="Sugerencia Champagne / Beige">
+                            <span>Sugerencia: Champagne</span>
+                        </div>
+                    </div>
+                    <div class="color-swatch" style="background: #0B5A42;" title="Verde Esmeralda">
+                        <div class="outfit-tooltip">
+                            <img src="assets/img/outfits/emerald.png" alt="Sugerencia Verde Esmeralda">
+                            <span>Sugerencia: Verde Esmeralda</span>
+                        </div>
+                    </div>
+                    <div class="color-swatch" style="background: #6B1D2F;" title="Rojo Vino">
+                        <div class="outfit-tooltip">
+                            <img src="assets/img/outfits/wine.png" alt="Sugerencia Rojo Vino">
+                            <span>Sugerencia: Rojo Vino</span>
+                        </div>
+                    </div>
+                </div>
+                <p class="note"><strong>Nota afectuosa:</strong> Con mucho cariño, les pedimos reservar el uso del <strong>color azul</strong> y cualquiera de sus tonalidades de manera exclusiva para nuestra festejada. Agradecemos su comprensión para que Sofi brille con luz propia en esta noche tan especial.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gifts Section -->
+    <section class="section gifts-section" id="gifts">
+        <div class="container glass-panel gifts-content">
+            <h2 class="section-title">Mesa de Regalos</h2>
+            <p>Tu presencia es mi mayor regalo, pero si gustas tener un detalle conmigo cualquier obsequio por muy
+                pequeño que sea será bienvenido y agradecido:</p>
+            <div class="gift-options">
+                <div class="gift-card">
+                    <div class="gift-card-main">
+                        <i class='bx bx-gift'></i>
+                        <p>Lluvia de Sobres</p>
+                        <small>Habrá un buzón en la recepción</small>
+                    </div>
+                    <div class="gift-card-hover">
+                        <h4>¿Cómo funciona?</h4>
+                        <p>Esta dinámica consiste en colocar tu obsequio en efectivo dentro de un sobre cerrado, el cual podrás depositar con mucho cariño en el buzón especial que estará en la entrada del salón de recepción. ¡Agradezco infinitamente tu hermoso detalle!</p>
+                    </div>
+                </div>
+
+                <div class="gift-card">
+                    <div class="gift-card-main">
+                        <i class='bx bx-closet'></i>
+                        <p>Ropa y Calzado</p>
+                        <small>Sugerencias de tallas y gustos</small>
+                    </div>
+                    <div class="gift-card-hover">
+                        <h4>Mis Tallas y Gustos</h4>
+                        <div class="gift-details">
+                            <p>👚 <strong>Blusa/Playera:</strong> Chica (S)</p>
+                            <p>👖 <strong>Pantalón:</strong> Talla 5 / 7</p>
+                            <p>👟 <strong>Calzado/Zapatos:</strong> 24 MX</p>
+                            <p>🌸 <strong>Estilo:</strong> Juvenil / Tonos pastel</p>
+                            <p>✨ <strong>Detalles:</strong> Accesorios plata, perfumes dulces</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- RSVP Section -->
+    <section class="section rsvp-section" id="rsvp">
+        <div class="container glass-panel rsvp-content">
+            <h2 class="section-title">Confirma tu Asistencia</h2>
+            <p>Por favor, hazme saber antes del 10 de Julio si podré contar con tu valiosa asistencia</p>
+            <form id="rsvp-form" class="rsvp-form">
+                <!-- Nombre del Invitado (Solo lectura, se llena al hacer login) -->
+                <div class="form-group">
+                    <label for="guest-name">Invitado Principal</label>
+                    <input type="text" id="guest-name" name="guest-name" readonly required style="background: rgba(255, 255, 255, 0.15); opacity: 0.85; cursor: not-allowed;">
+                </div>
+                
+                <!-- Pases Autorizados Adicionales (Solo lectura) -->
+                <div class="form-group">
+                    <label for="guest-limit">Pases autorizados adicionales</label>
+                    <input type="text" id="guest-limit" name="guest-limit" readonly required style="background: rgba(255, 255, 255, 0.15); opacity: 0.85; cursor: not-allowed;">
+                </div>
+
+                <!-- Confirmación de Asistencia -->
+                <div class="form-group">
+                    <label for="guest-attendance">¿Confirmas tu asistencia?</label>
+                    <select id="guest-attendance" name="guest-attendance" required>
+                        <option value="" disabled selected>Selecciona una opción...</option>
+                        <option value="si">Sí, asistiré con gusto 🎉</option>
+                        <option value="no">Lo siento, no podré asistir 😢</option>
+                    </select>
+                </div>
+
+                <!-- Cantidad de acompañantes confirmados (Dinámico) -->
+                <div class="form-group" id="confirm-companions-group">
+                    <label for="guest-confirm">¿Con cuántos acompañantes asistirás?</label>
+                    <select id="guest-confirm" name="guest-confirm" required>
+                        <option value="" disabled selected>Selecciona cantidad...</option>
+                        <!-- Opciones de 0 al límite se insertarán con JavaScript -->
+                    </select>
+                </div>
+
+                <button type="submit" class="btn btn-primary"><i class='bx bx-check-circle'></i> Enviar Confirmación</button>
+            </form>
+            <div id="rsvp-success" class="hidden-message">
+                <i class='bx bx-check-double icon-large'></i>
+                <h3>¡Gracias por confirmar!</h3>
+                <p>Tu asistencia ha quedado registrada. Nos vamos de fiesta</p>
+            </div>
+        </div>
+    </section>
+    <!-- Photo Upload Section -->
+    <section class="section photo-upload-section" id="upload">
+        <div class="container glass-panel upload-content">
+            <div class="rabbit-background">
+                <img src="assets/img/rabbit.png" alt="Conejo Blanco" class="rabbit-bg-img">
+            </div>
+            <h2 class="section-title">Comparte tus Fotos</h2>
+            <p>Me encantaría ver la fiesta desde tu perspectiva. ¡Sube las fotos y videos que tomes!</p>
+
+            <input type="file" id="file-input" multiple accept="image/*,video/mp4" style="display: none;">
+
+            <div class="upload-area" id="upload-area">
+                <!-- Estado Normal (Listo para cargar) -->
+                <div id="upload-normal-content" class="upload-state-content">
+                    <i class='bx bx-cloud-upload icon-large'></i>
+                    <h3>Toca o arrastra para subir</h3>
+                    <p>Formatos permitidos: JPG, PNG, MP4</p>
+                    <button class="btn btn-primary" onclick="document.getElementById('file-input').click()">Elegir Archivos</button>
+                </div>
+
+                <!-- Estado de Carga (Subiendo archivos) -->
+                <div id="upload-loading-content" class="upload-state-content hidden-message">
+                    <i class='bx bx-loader-alt bx-spin icon-large'></i>
+                    <h3 id="upload-loading-text">Subiendo archivos...</h3>
+                    <p>Por favor no cierres esta página.</p>
+                </div>
+            </div>
+
+            <div id="upload-preview" class="upload-preview"></div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 AM dev | Mis XV Años Sofia Ruiz</p>
+    </footer>
+
+    <!-- Traditional Audio Player -->
+    <audio id="bg-audio" src="assets/audio/cancion.mp3" loop autoplay></audio>
+    <div class="audio-controls">
+        <button id="btn-play" class="audio-btn active" title="Reproducir M&uacute;sica"><i
+                class='bx bx-play-circle'></i></button>
+        <button id="btn-pause" class="audio-btn" title="Pausar M&uacute;sica"><i
+                class='bx bx-pause-circle'></i></button>
+        <div class="audio-hint" id="audio-hint">
+            <i class='bx bx-left-arrow-alt'></i>
+            <span>Suena la m&uacute;sica</span>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>
