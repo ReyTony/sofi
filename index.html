@@ -32,13 +32,15 @@
             <p>Ingresa tu PIN de invitado único para desbloquear tu invitación personalizada.</p>
             <form id="login-form">
                 <div class="form-group">
-                    <input type="text" id="login-pin" placeholder="Ingresa tu PIN (ej. SF001)" required autocomplete="off">
+                    <input type="text" id="login-pin" placeholder="Ingresa tu PIN (ej. SF001)" required
+                        autocomplete="off">
                 </div>
                 <button type="submit" class="btn btn-primary" id="login-btn">
                     <span>Desbloquear Invitación</span>
                 </button>
             </form>
-            <div id="login-error" class="login-error-msg hidden-message">PIN incorrecto o no registrado. Por favor, verifica e inténtalo de nuevo.</div>
+            <div id="login-error" class="login-error-msg hidden-message">PIN incorrecto o no registrado. Por favor,
+                verifica e inténtalo de nuevo.</div>
         </div>
 
         <!-- Paso 2: Pantalla de Bienvenida (Flotante) -->
@@ -48,11 +50,18 @@
             </div>
             <h2>¡Qué alegría tenerte con nosotros!</h2>
             <div class="welcome-message-box" style="text-align: center; margin-top: 15px;">
-                <p class="welcome-guest-name" id="welcome-guest-name" style="margin-bottom: 15px; font-weight: bold; font-family: var(--font-script); font-size: 2.8rem; color: var(--clr-primary);"></p>
-                <p class="welcome-text-emotive" id="welcome-text-emotive" style="font-family: var(--font-heading); font-style: italic; font-size: 1.15rem; line-height: 1.6; color: var(--clr-text); margin-bottom: 20px;">
-                    "Es un verdadero honor para mí y para mi familia invitarte a celebrar este día tan mágico y lleno de felicidad. Tu presencia y compañía harán que esta gran noche sea inolvidable y única. ¡Te esperamos con todo el cariño del mundo!"
+                <p class="welcome-guest-name" id="welcome-guest-name"
+                    style="margin-bottom: 15px; font-weight: 600; font-family: var(--font-heading); font-style: italic; font-size: 2.3rem; color: var(--clr-primary);">
                 </p>
-                <p class="welcome-passes-info" id="welcome-passes-info" style="font-size: 0.95rem; color: #555; background: rgba(255, 255, 255, 0.5); padding: 8px 18px; border-radius: 30px; display: inline-block; border: 1px solid rgba(255, 255, 255, 0.8); margin-bottom: 25px;"></p>
+                <p class="welcome-text-emotive" id="welcome-text-emotive"
+                    style="font-family: var(--font-heading); font-style: italic; font-size: 1.15rem; line-height: 1.6; color: var(--clr-text); margin-bottom: 20px;">
+                    "Es un verdadero honor para mí y para mi familia invitarte a celebrar este día tan mágico y lleno de
+                    felicidad. Tu presencia y compañía harán que esta gran noche sea inolvidable y única. ¡Te esperamos
+                    con todo el cariño del mundo!"
+                </p>
+                <p class="welcome-passes-info" id="welcome-passes-info"
+                    style="font-size: 0.95rem; color: #555; background: rgba(255, 255, 255, 0.5); padding: 8px 18px; border-radius: 30px; display: inline-block; border: 1px solid rgba(255, 255, 255, 0.8); margin-bottom: 25px;">
+                </p>
             </div>
             <button class="btn btn-primary" id="btn-show-invitation" style="width: 100%;">
                 <span>Ver Invitación</span>
@@ -249,7 +258,10 @@
                         </div>
                     </div>
                 </div>
-                <p class="note"><strong>Nota afectuosa:</strong> Con mucho cariño, les pedimos reservar el uso del <strong>color azul</strong> y cualquiera de sus tonalidades de manera exclusiva para nuestra festejada. Agradecemos su comprensión para que Sofi brille con luz propia en esta noche tan especial.</p>
+                <p class="note"><strong>Nota afectuosa:</strong> Con mucho cariño, les pedimos reservar el uso del
+                    <strong>color azul</strong> y cualquiera de sus tonalidades de manera exclusiva para nuestra
+                    festejada. Agradecemos su comprensión para que Sofi brille con luz propia en esta noche tan
+                    especial.</p>
             </div>
         </div>
     </section>
@@ -269,7 +281,9 @@
                     </div>
                     <div class="gift-card-hover">
                         <h4>¿Cómo funciona?</h4>
-                        <p>Esta dinámica consiste en colocar tu obsequio en efectivo dentro de un sobre cerrado, el cual podrás depositar con mucho cariño en el buzón especial que estará en la entrada del salón de recepción. ¡Agradezco infinitamente tu hermoso detalle!</p>
+                        <p>Esta dinámica consiste en colocar tu obsequio en efectivo dentro de un sobre cerrado, el cual
+                            podrás depositar con mucho cariño en el buzón especial que estará en la entrada del salón de
+                            recepción. ¡Agradezco infinitamente tu hermoso detalle!</p>
                     </div>
                 </div>
 
@@ -303,13 +317,15 @@
                 <!-- Nombre del Invitado (Solo lectura, se llena al hacer login) -->
                 <div class="form-group">
                     <label for="guest-name">Invitado Principal</label>
-                    <input type="text" id="guest-name" name="guest-name" readonly required style="background: rgba(255, 255, 255, 0.15); opacity: 0.85; cursor: not-allowed;">
+                    <input type="text" id="guest-name" name="guest-name" readonly required
+                        style="background: rgba(255, 255, 255, 0.15); opacity: 0.85; cursor: not-allowed;">
                 </div>
-                
+
                 <!-- Pases Autorizados Adicionales (Solo lectura) -->
                 <div class="form-group">
                     <label for="guest-limit">Pases autorizados adicionales</label>
-                    <input type="text" id="guest-limit" name="guest-limit" readonly required style="background: rgba(255, 255, 255, 0.15); opacity: 0.85; cursor: not-allowed;">
+                    <input type="text" id="guest-limit" name="guest-limit" readonly required
+                        style="background: rgba(255, 255, 255, 0.15); opacity: 0.85; cursor: not-allowed;">
                 </div>
 
                 <!-- Confirmación de Asistencia -->
@@ -331,7 +347,8 @@
                     </select>
                 </div>
 
-                <button type="submit" class="btn btn-primary"><i class='bx bx-check-circle'></i> Enviar Confirmación</button>
+                <button type="submit" class="btn btn-primary"><i class='bx bx-check-circle'></i> Enviar
+                    Confirmación</button>
             </form>
             <div id="rsvp-success" class="hidden-message">
                 <i class='bx bx-check-double icon-large'></i>
@@ -357,7 +374,8 @@
                     <i class='bx bx-cloud-upload icon-large'></i>
                     <h3>Toca o arrastra para subir</h3>
                     <p>Formatos permitidos: JPG, PNG, MP4</p>
-                    <button class="btn btn-primary" onclick="document.getElementById('file-input').click()">Elegir Archivos</button>
+                    <button class="btn btn-primary" onclick="document.getElementById('file-input').click()">Elegir
+                        Archivos</button>
                 </div>
 
                 <!-- Estado de Carga (Subiendo archivos) -->

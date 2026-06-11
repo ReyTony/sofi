@@ -885,7 +885,7 @@ footer {
     .gift-card {
         max-width: 360px; /* Expand card width on tablet/mobile */
         width: 100%;
-        min-height: 180px;
+        min-height: 240px; /* Increased to prevent text cut-off */
     }
     .gift-card-hover {
         padding: 15px;
@@ -895,6 +895,26 @@ footer {
         line-height: 1.45;
     }
     .carousel-track { height: 300px; }
+}
+
+/* Taller cards and smaller text on very narrow screens (vertical format) */
+@media (max-width: 380px) {
+    .gift-card {
+        min-height: 275px;
+    }
+    .gift-card-hover h4 {
+        font-size: 1.05rem;
+        margin-bottom: 6px;
+    }
+    .gift-details {
+        gap: 6px;
+        padding-left: 5px;
+    }
+    .gift-details p {
+        font-size: 0.78rem;
+        line-height: 1.25;
+        gap: 6px;
+    }
 }
 
 /* Audio Player Controls */
@@ -1072,11 +1092,7 @@ footer {
     height: 100%;
     width: auto;
     object-fit: contain;
-}
-
-/* Maintain a premium subtle breath/sniff animation on the background image */
-.rabbit-background {
-    animation: rabbitBgSniff 6s ease-in-out infinite alternate;
+    animation: rabbitBgSniff 6s ease-in-out infinite alternate; /* Sniff animation placed on the img, freeing the container transform */
 }
 
 @keyframes rabbitBgSniff {
@@ -1092,11 +1108,21 @@ footer {
     }
 }
 
-/* Adjust responsiveness to avoid overlaying critical content on small mobile screens */
+/* Centered watermark positioning for mobile screens */
 @media (max-width: 768px) {
     .rabbit-background {
-        opacity: 0.2; /* Fade it further on small screens for better text legibility */
-        left: -20px;
+        opacity: 0.12; /* Lower opacity since it is centered under text */
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        height: 140px; /* Smaller size to keep it premium and avoid bleeding out */
+    }
+}
+
+@media (max-width: 480px) {
+    .rabbit-background {
+        opacity: 0.08; /* Very faint watermark for extremely vertical mobile viewports */
+        height: 110px; /* Made even smaller to prevent overlaying critical text */
     }
 }
 
